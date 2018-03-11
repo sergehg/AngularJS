@@ -1,9 +1,6 @@
 <html ng-app="miApp">
 
 <head>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script> -->
-    <!--  <script src="js/angular.min.js"></script> -->
-
     <script src="js/angular.min.js"></script>
     <script src="js/angular-animate.js"></script>
     <script src="js/angular-sanitize.js"></script>
@@ -12,18 +9,6 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" >
-
-
-    <!--  
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
-    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
-    <script src="js/todo.js"></script>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
- -->
 
 </head>
 
@@ -36,6 +21,7 @@
                     <div class="row">
                             <div class="col-sm-6">
                                 <uib-accordion>
+
                                     <div uib-accordion-group class="panel-success" heading="Lista de materiales disponibles">
                                         <span> {{ materialCtrl.countSelected() }} de {{ materialCtrl.list.length }} elementoss </span>
                                         <span > [ <a href="" ng-click="materialCtrl.elegir()"  uib-popover="Debes elegir al menos un elemento" popover-placement="right" popover-trigger="'mouseenter'" >elegir</a> ] </span>
