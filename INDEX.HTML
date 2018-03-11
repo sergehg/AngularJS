@@ -1,0 +1,117 @@
+<html ng-app="miApp">
+
+<head>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script> -->
+    <!--  <script src="js/angular.min.js"></script> -->
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="js/todo.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" >
+
+
+    <!--  
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="js/todo.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+ -->
+
+</head>
+
+<body ng-controller="materialController as materialCtrl">
+
+    <div class="container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Hybris</div>
+            <div class="panel-body">
+                    <div class="row">
+                            <div class="col-sm-6">
+                                <uib-accordion>
+                                    <div uib-accordion-group class="panel-success" heading="Lista de materiales disponibles">
+                                        <span> {{ materialCtrl.countSelected() }} de {{ materialCtrl.list.length }} elementoss </span>
+                                        <span > [ <a href="" ng-click="materialCtrl.elegir()"  uib-popover="Debes elegir al menos un elemento" popover-placement="right" popover-trigger="'mouseenter'" >elegir</a> ] </span>
+                                        <br>
+                                        <ul>
+                                            <label for="selectAll" class="checkbox" ng-show="materialCtrl.list.length">
+                                                <input type="checkbox" name="selectAll" ng-click="materialCtrl.toggleAllTodo()" ng-model="materialCtrl.selectAllFlag">
+                                                    Seleccionar todos
+                                            </label>
+                                            <hr>
+                                        </ul>
+
+                                        
+                                        <ul class="unstyled">
+                                            <li ng-repeat="todo in materialCtrl.list">
+                                                <label class="checkbox">
+                                                    <input type="checkbox" ng-model="todo.done">
+                                                    <span ng-class="{ 'selected' : todo.done }" >{{todo.text}}</span>
+
+                                                </label>
+                                            </li>
+                                        </ul>
+
+
+                                        <form ng-submit="materialCtrl.addTodo()" ng-show="materialCtrl.flag">
+                                            <input type="text" ng-model="materialCtrl.todoText" size="30" placeholder="agrega nuevo elemento">
+                                            <input class="btn-primary" type="submit" value="agregar">
+                                        </form>
+                                        <button ng-click="materialCtrl.toggle()" class="btn btn-success">
+                                            <span ng-hide="materialCtrl.flag">nuevo</span> 
+                                            <span ng-show="materialCtrl.flag" >ocultar</span>
+                                        </button>
+                                             
+                                    </div>
+                                </uib-accordion>
+                                
+                            </div>
+
+                            <div class="col-sm-6">
+                                
+                                <uib-tabset active="materialCtrl.activeTab" justified="true"  >
+
+                                    <uib-tab index="0" heading="Seleccionados">
+                                        <br>
+                                        Materiales  en la lista:  {{materialCtrl.listToWork.length}}
+                                        <span ng-show="materialCtrl.listToWork.length"  >
+                                        [ <a href="" ng-click="materialCtrl.deselegir()" uib-popover="Debes elegit al menos un elemento" popover-placement ="right" popover-trigger="'mouseenter'" >Deselegir</a> ] </span>
+
+                                        <ul>
+                                            <label for="selectAllListToWork" class="checkbox" ng-show="materialCtrl.listToWork.length">
+                                                <input type="checkbox" name="selectAllListToWork" ng-click="materialCtrl.toggleAllListToWork()" ng-model="materialCtrl.selectAllFlagListToWork">
+                                                        Seleccionar todos
+                                                </label>
+                                            <hr>
+                                        </ul>
+
+                                        <ul class="unstyled">
+                                            <li ng-repeat="materialSelected in materialCtrl.listToWork"> 
+                                                <label ng-class="{'selected': materialSelected.done }" class="checkbox">
+                                                       <input type="checkbox" ng-model="materialSelected.done">{{materialSelected.text}}
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </uib-tab>
+
+                                    <uib-tab index="1" heading="Flexible Search">
+                                        Flexible Search
+                                    </uib-tab>
+
+                                  </uib-tabset>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
